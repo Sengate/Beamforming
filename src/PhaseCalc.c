@@ -108,13 +108,13 @@ void compute_antenna_phases(TABs_inform *beams_param, float *ant_gains, complex 
 
             //East_west pojection phase vector
             float angle_EW = 2 * M_PI/lam * (iant * east_antSpacing) * DirecCos->x;
-            OutPhase_east[ibeam][iant].real =cos(angle_EW);
-            OutPhase_east[ibeam][iant].imag =-sin(angle_EW);
+            OutPhase_east[ibeam][iant].real =cos(angle_EW) * ant_gains[iant];
+            OutPhase_east[ibeam][iant].imag =-sin(angle_EW) * ant_gains[iant];
             
             //North_south projection phase vector
             float angle_NS = 2 * M_PI/lam * (iant * north_antSpacing) * DirecCos->y;
-            OutPhase_north[ibeam][iant].real =cos(angle_NS);
-            OutPhase_north[ibeam][iant].imag =-sin(angle_NS);
+            OutPhase_north[ibeam][iant].real =cos(angle_NS) * ant_gains[iant];
+            OutPhase_north[ibeam][iant].imag =-sin(angle_NS) * sant_gains[iant];
             
             
         }
